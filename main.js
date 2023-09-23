@@ -49,6 +49,31 @@ const createWindow = () => {
 						console.log("Electron rocks!");
 					},
 				},
+				{
+					role: "selectAll",
+					accelerator: "Cmd+A",
+					click: () => {},
+				},
+				{
+					role: "copy",
+					accelerator: "Cmd+C",
+					click: () => {},
+				},
+				{
+					role: "paste",
+					accelerator: "Cmd+V",
+					click: () => {},
+				},
+				{
+					role: "undo",
+					accelerator: "Cmd+Z",
+					click: () => {},
+				},
+				{
+					role: "redo",
+					accelerator: "Cmd+Shift+Z",
+					click: () => {},
+				},
 			],
 		})
 	);
