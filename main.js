@@ -17,7 +17,12 @@ const createWindow = () => {
 		// 失去焦点的时候隐藏窗口
 		// hiddenInMissionControl:true,
 		vibrancy: "sheet",
+		show: false,
 		
+	});
+
+	win.once("ready-to-show", () => {
+		win.show();
 	});
 
 	const menu = new Menu();
@@ -72,6 +77,11 @@ const createWindow = () => {
 				{
 					role: "redo",
 					accelerator: "Cmd+Shift+Z",
+					click: () => {},
+				},
+				{
+					role: "reload",
+					accelerator: "Cmd+R",
 					click: () => {},
 				},
 			],
