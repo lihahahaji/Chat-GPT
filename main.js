@@ -1,11 +1,11 @@
-const { app, BrowserWindow, globalShortcut, Menu, MenuItem ,screen} = require("electron");
+const { app, BrowserWindow, globalShortcut, Menu, MenuItem, screen } = require("electron");
 // app，它着您应用程序的事件生命周期。
 // BrowserWindow，它负责创建和管理应用窗口。
 
 // createWindow 函数用于创建一个应用窗口
 const createWindow = () => {
 	const { width, height } = screen.getPrimaryDisplay().workAreaSize;
-	const windowWidth = 400
+	const windowWidth = 764
 	const x = width - windowWidth
 	const win = new BrowserWindow({
 		// 设置宽高
@@ -14,15 +14,22 @@ const createWindow = () => {
 		x: x,
 		y: 0,
 		titleBarStyle: "customButtonsOnHover",
+		// frame: false,
 		// 失去焦点的时候隐藏窗口
 		// hiddenInMissionControl:true,
 		vibrancy: "sheet",
 		show: false,
-		
+
 	});
 
 	win.once("ready-to-show", () => {
 		win.show();
+	});
+
+	// 监听窗口的尺寸
+	win.on('resize', () => {
+		const { width } = win.getBounds();
+		console.log(`Window width: ${width}`);
 	});
 
 	const menu = new Menu();
@@ -57,32 +64,32 @@ const createWindow = () => {
 				{
 					role: "selectAll",
 					accelerator: "Cmd+A",
-					click: () => {},
+					click: () => { },
 				},
 				{
 					role: "copy",
 					accelerator: "Cmd+C",
-					click: () => {},
+					click: () => { },
 				},
 				{
 					role: "paste",
 					accelerator: "Cmd+V",
-					click: () => {},
+					click: () => { },
 				},
 				{
 					role: "undo",
 					accelerator: "Cmd+Z",
-					click: () => {},
+					click: () => { },
 				},
 				{
 					role: "redo",
 					accelerator: "Cmd+Shift+Z",
-					click: () => {},
+					click: () => { },
 				},
 				{
 					role: "reload",
 					accelerator: "Cmd+R",
-					click: () => {},
+					click: () => { },
 				},
 			],
 		})
