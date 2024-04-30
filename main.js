@@ -5,7 +5,7 @@ const { app, BrowserWindow, globalShortcut, Menu, MenuItem, screen } = require("
 // createWindow 函数用于创建一个应用窗口
 const createWindow = () => {
 	const { width, height } = screen.getPrimaryDisplay().workAreaSize;
-	const windowWidth = 764
+	const windowWidth = 500
 	const x = width - windowWidth
 	const win = new BrowserWindow({
 		// 设置宽高
